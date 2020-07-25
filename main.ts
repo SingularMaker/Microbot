@@ -189,17 +189,7 @@
       serial.redirect(
         SerialPin.P12,
         SerialPin.P8,
-          BaudRate.BaudRate115200);
-	basic.forever(() => {
-	if(readTimes < 5 && !versionFlag)
-      		getHandleCmd();
-  	});	  
-	  while(readTimes < 5 && !versionFlag)
-	  {
-		readTimes++;
-                sendVersionCmd();
-          basic.pause(30)
-	  }
+          BaudRate.BaudRate9600);
      }
 
   //% weight=100 blockId=microbotInit13 block="Initialize Microbot"
