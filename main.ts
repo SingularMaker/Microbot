@@ -178,7 +178,6 @@
      let handleCmd: string = "";
      let versionFlag: boolean = false; 
      let readTimes = 0;
-	 let v13_flag = 0;
 
 	/**
    * Microbot board initialization, please execute at boot time
@@ -190,31 +189,18 @@
       serial.redirect(
         SerialPin.P12,
         SerialPin.P8,
-		BaudRate.BaudRate115200);
+          BaudRate.BaudRate115200);
 	basic.forever(() => {
-		if(readTimes < 5 && !versionFlag) 
-		{
+	if(readTimes < 5 && !versionFlag)
       		getHandleCmd();
-		} 
-		else 
-		{
-			serial.redirect(
-				SerialPin.P12,
-				SerialPin.P8,
-				BaudRate.BaudRate9600);
-			v13_flag=1;
-		}
-	});	  
-	while(readTimes < 5 && !versionFlag)
+  	});	  
+	  while(readTimes < 5 && !versionFlag)
 	  {
-		    if(!v13_flag) {
-				readTimes++;
-				sendVersionCmd();
-				basic.pause(30)				
-			} 
-
+		readTimes++;
+                sendVersionCmd();
+          basic.pause(30)
 	  }
-    }
+     }
 
      function sendVersionCmd() {
         let buf = pins.createBuffer(4);
