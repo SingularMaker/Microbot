@@ -201,7 +201,7 @@
 	);	  
 	while(readTimes < 5 && !versionFlag)
 	  {
-		    if(v13_flag != 1) {
+		    if(!v13_flag) {
 				readTimes++;
 				sendVersionCmd();
 				basic.pause(30)				
