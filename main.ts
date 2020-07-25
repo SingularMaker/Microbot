@@ -198,7 +198,7 @@
 			BaudRate.BaudRate9600;
 			v13_flag=1;
 		}
-	);	  
+	});	  
 	while(readTimes < 5 && !versionFlag)
 	  {
 		    if(!v13_flag) {
