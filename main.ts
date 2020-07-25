@@ -197,6 +197,8 @@
 		} 
 		else {
 			serial.redirect(
+				SerialPin.P12,
+        			SerialPin.P8,
 				BaudRate.BaudRate9600);
 			v13_flag=1;
 		}
