@@ -193,9 +193,12 @@
 		BaudRate.BaudRate115200);
 	basic.forever(() => {
 		if(readTimes < 5 && !versionFlag) {
-      			getHandleCmd();
-		} else {
-			BaudRate.BaudRate9600;
+      		getHandleCmd();
+		} 
+		else {
+			serial.redirect(
+				BaudRate.BaudRate9600;
+			}
 			v13_flag=1;
 		}
 	});	  
@@ -204,7 +207,7 @@
 		    if(!v13_flag) {
 				readTimes++;
 				sendVersionCmd();
-				basic.pause(30);		
+				basic.pause(30)				
 			} 
 
 	  }
