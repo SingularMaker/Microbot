@@ -202,6 +202,26 @@
 	  }
      }
 
+  //% weight=100 blockId=microbotInit13 block="Initialize Microbot"
+  export function microbotInit13() {
+      initRGBLight();   
+      initColorSensor();
+      serial.redirect(
+        SerialPin.P12,
+        SerialPin.P8,
+          BaudRate.BaudRate115200);
+	basic.forever(() => {
+	if(readTimes < 5 && !versionFlag)
+      		getHandleCmd();
+  	});	  
+	  while(readTimes < 5 && !versionFlag)
+	  {
+		readTimes++;
+                sendVersionCmd();
+          basic.pause(30)
+	  }
+     }
+	 
      function sendVersionCmd() {
         let buf = pins.createBuffer(4);
         buf[0] = 0x55;
