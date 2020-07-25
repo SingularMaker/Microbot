@@ -204,7 +204,7 @@
 		    if(!v13_flag) {
 				readTimes++;
 				sendVersionCmd();
-				basic.pause(30)				
+				basic.pause(30);		
 			} 
 
 	  }
