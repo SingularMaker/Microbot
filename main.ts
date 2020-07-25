@@ -192,13 +192,15 @@
         SerialPin.P8,
 		BaudRate.BaudRate115200);
 	basic.forever(() => {
-		if(readTimes < 5 && !versionFlag) {
+		if(readTimes < 5 && !versionFlag) 
+		{
       		getHandleCmd();
 		} 
-		else {
+		else 
+		{
 			serial.redirect(
 				SerialPin.P12,
-        			SerialPin.P8,
+				SerialPin.P8,
 				BaudRate.BaudRate9600);
 			v13_flag=1;
 		}
