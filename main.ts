@@ -197,8 +197,7 @@
 		} 
 		else {
 			serial.redirect(
-				BaudRate.BaudRate9600;
-			)
+				BaudRate.BaudRate9600);
 			v13_flag=1;
 		}
 	});	  
