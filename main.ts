@@ -20,7 +20,7 @@
         //% blockId="Green" block="Green"
         Green = 0x02,
         //% blockId="Blue" block="Blue"
-		Blue = 0x03
+	Blue = 0x03
     }
 
     export enum Lights {
@@ -166,18 +166,18 @@
 
 
     let lhRGBLight: RGBLight.LHRGBLight;
-	let R_F: number;
-	let r_f: number;
+    let R_F: number;
+    let r_f: number;
 	
-	let g_f: number;
-	let G_F: number;
+    let g_f: number;
+    let G_F: number;
 
-	let b_f: number;
-     let B_F: number;
+    let b_f: number;
+    let B_F: number;
     
-     let handleCmd: string = "";
-     let versionFlag: boolean = false; 
-     let readTimes = 0;
+    let handleCmd: string = "";
+    let versionFlag: boolean = false; 
+    let readTimes = 0;
 
 	/**
    * Microbot board initialization, please execute at boot time
@@ -190,7 +190,7 @@
         SerialPin.P12,
         SerialPin.P8,
         BaudRate.BaudRate9600);
-     }
+   }
 
   //% weight=100 blockId=microbotInit block="Initialize Microbot"
   export function microbotInit() {
@@ -201,24 +201,25 @@
         SerialPin.P8,
         BaudRate.BaudRate115200);
 	  
-	basic.forever(() => {
-	if(readTimes < 5 && !versionFlag)
-      	  getHandleCmd();
-  	});
+       basic.forever(() => {
+	 if(readTimes < 5 && !versionFlag)
+      	   getHandleCmd();
+       });
+	   
+       while(readTimes < 5 && !versionFlag)
+       {
+         readTimes++;
+         sendVersionCmd();
+         basic.pause(30)
+       }
 	  
-	while(readTimes < 5 && !versionFlag)
-	{
-	  readTimes++;
-          sendVersionCmd();
-          basic.pause(30)
-	}
-        if(readTimes == 5) {
-          serial.redirect(
-          SerialPin.P12,
-          SerialPin.P8,
-          BaudRate.BaudRate9600);
-          basic.pause(50)
-	}	
+       if(readTimes == 5) {
+         serial.redirect(
+         SerialPin.P12,
+         SerialPin.P8,
+         BaudRate.BaudRate9600);
+         basic.pause(50)
+       }	
      }
 	 
      function sendVersionCmd() {
