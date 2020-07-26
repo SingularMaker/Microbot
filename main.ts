@@ -217,8 +217,8 @@
           SerialPin.P12,
           SerialPin.P8,
           BaudRate.BaudRate9600);
-	}
-	basic.pause(50)
+          basic.pause(50)
+	}	
      }
 	 
      function sendVersionCmd() {
