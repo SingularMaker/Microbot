@@ -199,17 +199,25 @@
       serial.redirect(
         SerialPin.P12,
         SerialPin.P8,
-          BaudRate.BaudRate115200);
+        BaudRate.BaudRate115200);
+	  
 	basic.forever(() => {
 	if(readTimes < 5 && !versionFlag)
-      		getHandleCmd();
-  	});	  
-	  while(readTimes < 5 && !versionFlag)
-	  {
-		readTimes++;
-                sendVersionCmd();
+      	  getHandleCmd();
+  	});
+	  
+	while(readTimes < 5 && !versionFlag)
+	{
+	  readTimes++;
+          sendVersionCmd();
           basic.pause(30)
-	  }
+	}
+        if(readTimes = 5) {
+          serial.redirect(
+          SerialPin.P12,
+          SerialPin.P8,
+          BaudRate.BaudRate9600);
+	}
      }
 	 
      function sendVersionCmd() {
@@ -233,7 +241,7 @@
          if (cnt > 0 && handleCmd.charAt(0).compare("V") == 0)
          {
              versionFlag = true;
-         }    
+         }
   }
 
   
