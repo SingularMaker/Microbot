@@ -182,18 +182,18 @@
 	/**
    * Microbot board initialization, please execute at boot time
   */
-  //% weight=100 blockId=microbotInit block="Initialize Microbot"
-  export function microbotInit() {
+  //% weight=100 blockId=microbotInit13 block="Initialize Microbot13"
+  export function microbotInit13() {
       initRGBLight();   
       initColorSensor();
       serial.redirect(
         SerialPin.P12,
         SerialPin.P8,
-          BaudRate.BaudRate9600);
+        BaudRate.BaudRate9600);
      }
 
-  //% weight=100 blockId=microbotInit13 block="Initialize Microbot"
-  export function microbotInit13() {
+  //% weight=100 blockId=microbotInit block="Initialize Microbot"
+  export function microbotInit() {
       initRGBLight();   
       initColorSensor();
       serial.redirect(
