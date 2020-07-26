@@ -212,7 +212,7 @@
           sendVersionCmd();
           basic.pause(30)
 	}
-        if(readTimes = 5) {
+        if(readTimes == 5) {
           serial.redirect(
           SerialPin.P12,
           SerialPin.P8,
